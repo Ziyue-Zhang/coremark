@@ -21,7 +21,7 @@
 OUTFLAG= -o
 # Flag: CC
 #	Use this flag to define compiler to use
-CC?= cc
+CC = riscv64-unknown-linux-gnu-gcc
 # Flag: CFLAGS
 #	Use this flag to define compiler options. Note, you can add compiler options from the command line using XCFLAGS="other flags"
 PORT_CFLAGS = -O2
@@ -33,7 +33,7 @@ ifndef NO_LIBRT
 #Flag: LFLAGS_END
 #	Define any libraries needed for linking or other flags that should come at the end of the link line (e.g. linker scripts). 
 #	Note: On certain platforms, the default clock_gettime implementation is supported but requires linking of librt.
-LFLAGS_END += -lrt
+LFLAGS_END += -lrt -lpthread
 endif
 # Flag: PORT_SRCS
 #	Port specific source files can be added here
